@@ -75,5 +75,30 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
 
     }
+    
+    func retweetWithID(params: NSDictionary?, id: Int, completion : (tweet : Tweet?, error: NSError?) -> ()){
+        
+        POST("1.1/statuses/retweet/\(id).json", parameters: params, success: { (operatin: NSURLSessionDataTask, response:AnyObject?) -> Void in
+            var array : [NSDictionary] = [NSDictionary]()
+            array.append(response as! NSDictionary)
+            let tweets = Tweet.tweetsWithArray(array)
+            print("NIRAJ: \(response as! NSDictionary)")
+            completion(tweet: tweets[0], error: nil)
+            }) { (response: NSURLSessionDataTask?, error: NSError) -> Void in
+                completion(tweet: nil, error: error)
+        }
+    }
+    
+    func favoriteWithID(params: NSDictionary?, id: Int, completion : (tweet : Tweet?, error: NSError?) -> ()){
+        
+        POST("1.1/favorites/create.json", parameters: params, success: { (operatin: NSURLSessionDataTask, response:AnyObject?) -> Void in
+            var array : [NSDictionary] = [NSDictionary]()
+            array.append(response as! NSDictionary)
+            let tweets = Tweet.tweetsWithArray(array)
+            completion(tweet: tweets[0], error: nil)
+            }) { (response: NSURLSessionDataTask?, error: NSError) -> Void in
+                completion(tweet: nil, error: error)
+        }
+    }
 
 }
