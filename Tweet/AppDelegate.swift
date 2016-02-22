@@ -22,12 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
     
         if User.currentUser != nil {
-            let vc = storyboard.instantiateViewControllerWithIdentifier("TweetsViewController")
+            /*let vc = storyboard.instantiateViewControllerWithIdentifier("TweetsViewController")
+            window?.rootViewController = vc*/
+            let vc = storyboard.instantiateViewControllerWithIdentifier("MyNavigationController")
+                as! UINavigationController
             window?.rootViewController = vc
 
         }
-        
-        
         
         
         return true
@@ -61,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool{
         
         TwitterClient.sharedInstance.openURL(url)
                 return true

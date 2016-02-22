@@ -11,6 +11,7 @@ import UIKit
 class Tweet: NSObject {
     
     var user: User?
+    var screenname: String?
     var text: String?
     var createdAtString: String?
     var createdAt: NSDate?
@@ -21,6 +22,7 @@ class Tweet: NSObject {
     
     init(dictionary: NSDictionary){
         user = User(dictionary: (dictionary["user"] as? NSDictionary)!)
+        screenname = (dictionary["user"] as? NSDictionary)!["screen_name"] as? String
         text = dictionary["text"] as? String
         createdAtString = dictionary["created_at"] as? String
         id = dictionary["id"] as! Int

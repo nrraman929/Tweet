@@ -45,7 +45,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     
     func homeTimelineWithParams(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
         GET("1.1/statuses/home_timeline.json", parameters: params, success: { (operation : NSURLSessionDataTask, response: AnyObject?) -> Void in
-            //print("home timeline: \(response)")
+            print("home timeline: \(response)")
             let tweets = Tweet.tweetsWithArray((response as? [NSDictionary])!)
             completion(tweets: tweets, error: nil)
         }, failure: { (response: NSURLSessionDataTask?, error: NSError) -> Void in
@@ -62,7 +62,7 @@ class TwitterClient: BDBOAuth1SessionManager {
             TwitterClient.sharedInstance.requestSerializer.saveAccessToken(accessToken)
             
             TwitterClient.sharedInstance.GET("1.1/account/verify_credentials.json", parameters: nil, success: { (operation : NSURLSessionDataTask, response: AnyObject?) -> Void in
-                //print("user: \(response)")
+                print("user: \(response)")
                 let user = User(dictionary: response as! NSDictionary)
                 User.currentUser = user
                 self.loginCompletion?(user: user, error: nil)
@@ -82,7 +82,6 @@ class TwitterClient: BDBOAuth1SessionManager {
             var array : [NSDictionary] = [NSDictionary]()
             array.append(response as! NSDictionary)
             let tweets = Tweet.tweetsWithArray(array)
-            print("NIRAJ: \(response as! NSDictionary)")
             completion(tweet: tweets[0], error: nil)
             }) { (response: NSURLSessionDataTask?, error: NSError) -> Void in
                 completion(tweet: nil, error: error)

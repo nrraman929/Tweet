@@ -29,7 +29,10 @@ class TweetCell: UITableViewCell {
             favoriteLabel.text = String(tweet.favorite)
             let formatter = NSDateFormatter()
             formatter.dateStyle = .ShortStyle
-            timestampLabel.text = formatter.stringFromDate(tweet.createdAt!)
+            print(tweet.createdAt)
+            if(tweet.createdAt != nil){
+                //timestampLabel.text = tweet.createdAtString
+            }
             
             
         }

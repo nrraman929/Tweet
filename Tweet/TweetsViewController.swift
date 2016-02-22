@@ -50,4 +50,22 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.tweet = tweets![indexPath.row]
         return cell
     }
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("pushSegue", sender: nil)
+    }
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        let cell = sender as! UITableViewCell
+        let pushViewController = segue.destinationViewController as! PushViewController
+        let indexPath = tableView.indexPathForCell(cell)
+        pushViewController.tweet = tweets![indexPath!.row]
+        
+        
+        
+    }
 }
