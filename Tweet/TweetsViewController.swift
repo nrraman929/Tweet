@@ -48,6 +48,12 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetCell
         cell.tweet = tweets![indexPath.row]
+        
+        cell.profilePic.userInteractionEnabled = true
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("imageTapped:"))
+        cell.profilePic.addGestureRecognizer(tapRecognizer)
+        
         return cell
     }
     
@@ -64,8 +70,23 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let pushViewController = segue.destinationViewController as! PushViewController
         let indexPath = tableView.indexPathForCell(cell)
         pushViewController.tweet = tweets![indexPath!.row]
-        
-        
+
         
     }
+    
+    func imageTapped(gestureRecognizer: UITapGestureRecognizer) {
+        let profileViewController = self.storyboard!.instantiateViewControllerWithIdentifier("ProfileViewController") as! ProfileViewController
+        
+        let tapLocation = gestureRecognizer.locationInView(self.tableView)
+        let indexPath = self.tableView.indexPathForRowAtPoint(tapLocation)
+        let cell = self.tableView.cellForRowAtIndexPath(indexPath!) as! TweetCell
+        
+        profileViewController.user = cell.tweet.user
+        
+        self.navigationController!.pushViewController(profileViewController, animated: true)
+
+    }
+    
+    
+     
 }
