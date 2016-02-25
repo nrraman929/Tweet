@@ -15,10 +15,6 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var cell: TweetCell!
     
     @IBOutlet weak var tableView: UITableView!
-    @IBAction func onLogout(sender: AnyObject){
-        User.currentUser?.logout()
-
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +81,23 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         self.navigationController!.pushViewController(profileViewController, animated: true)
 
+    }
+    
+    
+    @IBAction func onCompose(sender: AnyObject) {
+        
+        let composeViewController = self.storyboard!.instantiateViewControllerWithIdentifier("composeViewController") as! ComposeViewController
+    
+        
+        
+        self.presentViewController(composeViewController, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func onLogout(sender: AnyObject) {
+        
+            User.currentUser?.logout()
+        
     }
     
     

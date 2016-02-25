@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		192554091C7DED1C00132003 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192554081C7DED1C00132003 /* ComposeViewController.swift */; };
 		19D5D4D91C6C112A00141B36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D5D4D81C6C112A00141B36 /* AppDelegate.swift */; };
 		19D5D4DB1C6C112A00141B36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D5D4DA1C6C112A00141B36 /* ViewController.swift */; };
 		19D5D4DE1C6C112A00141B36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19D5D4DC1C6C112A00141B36 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		192554081C7DED1C00132003 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		19D5D4D51C6C112A00141B36 /* Tweet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tweet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19D5D4D81C6C112A00141B36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19D5D4DA1C6C112A00141B36 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				19EDDAAA1C71AD1E00983FBF /* TweetCell.swift */,
 				19DC1EAC1C7933AF00D363EA /* PushViewController.swift */,
 				19DC1EAE1C7A87B800D363EA /* ProfileViewController.swift */,
+				192554081C7DED1C00132003 /* ComposeViewController.swift */,
 			);
 			path = Tweet;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				19DC1EAD1C7933AF00D363EA /* PushViewController.swift in Sources */,
 				19EDDAA51C70EC5000983FBF /* Tweet.swift in Sources */,
 				19EDDAA71C7186C800983FBF /* TweetsViewController.swift in Sources */,
+				192554091C7DED1C00132003 /* ComposeViewController.swift in Sources */,
 				19D5D4DB1C6C112A00141B36 /* ViewController.swift in Sources */,
 				19DC1EAF1C7A87B800D363EA /* ProfileViewController.swift in Sources */,
 				19EDDAA01C70CBD900983FBF /* TwitterClient.swift in Sources */,
